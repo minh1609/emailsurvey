@@ -1,5 +1,11 @@
 const express = require("express");
+
+require("./services/passport");
+
 const app = express();
+
+//Define Route
+require("./routes/authRouth")(app);
 
 app.get("/", (req, res) => {
     res.send("Hello");
