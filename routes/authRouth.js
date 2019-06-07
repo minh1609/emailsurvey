@@ -8,7 +8,7 @@ module.exports = app => {
         (req, res) => {}
     );
 
-    //handl when user is authenticaed
+    //handle when user is authenticaed
     app.get("/auth/google/callback", passport.authenticate("google"));
 
     app.get("/api/logout", (req, res) => {

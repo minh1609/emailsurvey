@@ -23,7 +23,9 @@ passport.use(
             clientID: key.googleClientID,
             clientSecret: key.googleClientSecret,
             //after user have permission, send user back to this route, this must be match the setting Authorised redirect URIs on gg
-            callbackURL: "/auth/google/callback"
+            callbackURL: "/auth/google/callback",
+            //tell google to trust server proxy
+            proxy: true
         },
         async (accessToken, refreshToken, profile, done) => {
             //accessToken: provide right to interact with customer daya
