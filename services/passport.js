@@ -34,15 +34,14 @@ passport.use(
             //done: finish authentication
 
             //check if user already sign up or not
-            User.findOne({ googleId: profile.id }).then(foundUser => {
-                if (foundUser) {
-                    done(null, foundUser);
-                } else {
-                    new User({ googleId: profile.id })
-                        .save()
-                        .then(user => done(null, user));
-                }
-            });
+            const foundUser = await User.findOne({ googleId: profile.id });
+
+            if (foundUser) {
+                done(null, foundUser);
+            } else {
+                const user = await new User({ googleId: profile.id }).save();
+                done(null, user);
+            }
         }
     )
 );
