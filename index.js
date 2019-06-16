@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cookieSession = require("cookie-session");
 const passport = require("passport");
+const bodyParser = require("body-parser");
 
 const key = require("./config/key");
 
@@ -21,8 +22,11 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
+app.use(bodyParser.json());
+
 //Define Route
 require("./routes/authRouth")(app);
+require("./routes/billingRoutes")(app);
 
 //PRODUCTION SET UP
 if (process.env.NODE_ENV === "production") {

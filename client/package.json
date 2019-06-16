@@ -3,7 +3,6 @@
     "version": "0.1.0",
     "private": true,
     "dependencies": {
-        "http-proxy-middleware": "^0.19.1",
         "materialize-css": "^1.0.0-rc.2",
         "react": "^16.8.6",
         "react-dom": "^16.8.6",
@@ -34,5 +33,6 @@
             "last 1 firefox version",
             "last 1 safari version"
         ]
-    }
+    },
+    "proxy": "http://localhost:5000"
 }

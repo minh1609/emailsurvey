@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import StripeCheckout from "react-stripe-checkout";
+import { connect } from "react-redux";
+import * as action from "../actions";
 
 export class Payment extends Component {
     render() {
@@ -8,9 +10,9 @@ export class Payment extends Component {
                 name="Email Survey"
                 description="for credits"
                 amount={500}
-                //token: object returned when payment success
+                //token: object returned when finish payment
                 token={token => {
-                    console.log(token);
+                    this.props.handleToken(token);
                 }}
                 stripeKey={process.env.REACT_APP_STRIPE_KEY}
             >
@@ -20,4 +22,13 @@ export class Payment extends Component {
     }
 }
 
-export default Payment;
+const mapStateToProps = state => ({});
+
+const mapDispatchToProps = {
+    handleToken: action.handleToken
+};
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(Payment);
