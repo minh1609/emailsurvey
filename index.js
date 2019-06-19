@@ -12,6 +12,7 @@ require("./services/passport");
 const app = express();
 mongoose.connect(key.mongoDB, { useNewUrlParser: true });
 
+//Middleware config
 app.use(
     cookieSession({
         maxAge: 30 * 24 * 60 * 60 * 1000,
