@@ -10,10 +10,10 @@ const surveySchema = new mongoose.Schema({
     recipients: [RecipientSchema],
 
     //Foreign Key: _user =  ObjectId, reference User
-    _user: { type: Schema.Types.ObjectId, ref: "User" },
+    _user: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
 
     dateSend: Date,
     lastResponded: Date
 });
 
-mongoose.model("survey", surveySchema);
+mongoose.model("surveys", surveySchema);

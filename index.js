@@ -7,6 +7,8 @@ const bodyParser = require("body-parser");
 const key = require("./config/key");
 
 require("./models/User");
+require("./models/Survey");
+
 require("./services/passport");
 
 const app = express();
@@ -28,6 +30,7 @@ app.use(bodyParser.json());
 //Define Route
 require("./routes/authRouth")(app);
 require("./routes/billingRoutes")(app);
+require("./routes/surveyRoutes")(app);
 
 //PRODUCTION SET UP
 if (process.env.NODE_ENV === "production") {
