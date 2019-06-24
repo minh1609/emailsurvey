@@ -8,7 +8,7 @@ export class Payment extends Component {
         return (
             <StripeCheckout
                 name="Email Survey"
-                description="for credits"
+                description="test: 4242 4242 4242 4242 "
                 amount={500}
                 //token: object returned when finish payment
                 token={token => {

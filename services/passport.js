@@ -6,10 +6,12 @@ const key = require("../config/key");
 
 const User = mongoose.model("users");
 
+//put user infomation inside cookie
 passport.serializeUser((user, done) => {
     done(null, user.id);
 });
 
+//find user ID in cookie
 passport.deserializeUser((id, done) => {
     User.findById(id).then(user => {
         done(null, user);
@@ -28,8 +30,8 @@ passport.use(
             proxy: true
         },
         async (accessToken, refreshToken, profile, done) => {
-            //accessToken: provide right to interact with customer daya
-            //refresh: get new access token
+            //accessToken: provide right to interact with customer data
+            //refreshToken: get new access token
             //profile: hold all user information
             //done: finish authentication
 

@@ -36,7 +36,7 @@ export class Header extends Component {
                         to={this.props.auth ? "/surveys" : "/"}
                         className="left brand-logo"
                     >
-                        Email Survey{" "}
+                        Email Survey
                     </Link>
                     <ul className="right">{this.renderContennt()}</ul>
                 </div>
